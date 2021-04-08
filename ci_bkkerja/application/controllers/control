@@ -1,0 +1,27 @@
+<?php
+
+Class control extends CI_Controller {
+	
+	public function index()	{
+		$this->load->view('home');
+	}
+	public function carikerja() {
+		$this->load->view('carikerja');
+	}
+	public function login() {
+		$this->load->view('login');
+	}
+	function backtohome() {
+		redirect(base_url('main/index'));
+	}
+	public function daftarperusahaan() {
+		$this->load->view('daftarperusahaan');
+	}
+	function daftarsimpan(){
+		$this->model_bkk->daftarsimpan();
+		redirect('control/admincarikerja');
+	} 
+	function admincarikerja(){
+		$this->load->view('v_tabelcarikerja');
+	}
+}
